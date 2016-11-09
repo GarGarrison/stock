@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use App\Order;
 use App\User;
 use DB;
 
@@ -53,6 +54,14 @@ class Controller extends BaseController
         return Carbon::now()->addSeconds($this->delay_time)->timestamp;
     }
 
+    public function updateOrder($join) { 
+        $order = Order::find($join->orderid);
+        $order->update([
+            "status" => 2,
+            "storage_time" => $this->getTime()
+        ]);
+    }
+
     protected function getOrders() {
         $user = Auth::user();
         DB::statement('SET SQL_BIG_SELECTS=1');
@@ -66,7 +75,7 @@ class Controller extends BaseController
     }
 
     public function getStorageOrderTime($user) {
-        return DB::table('orders')
+        $order = DB::table('orders')
             ->where(function($query){
                 $query->where('status', '2');
                 $query->where('storage_time', '<', $this->getTimeDelta());
@@ -76,22 +85,26 @@ class Controller extends BaseController
             ->select('orders.id as orderid', 'orders.*', 'goods.*')
             ->where($user->storage, '<>', 0)
             ->orderBy('datetime', 'desc')->first();
+        $this->updateOrder($order);
+        return $order;
     }
 
     public function getStorageOrderNoTime($user) {
-        return DB::table('orders')
+        $order = DB::table('orders')
             ->where('status', 0)
             ->leftJoin('goods', 'orders.goods', '=', 'goods.num')
             ->select('orders.id as orderid', 'orders.*', 'goods.*')
             ->where($user->storage, '<>', 0)
             ->orderBy('datetime', 'desc')->first();
+        $this->updateOrder($order);
+        return $order;
     }
 
     public function getStorageOrder($user, $isIndex) {
         $client = "";
         $order = "";
         if ($isIndex) $order = $this->getStorageOrderNoTime($user);
-        else $order = getStorageOrderTime($user);
+        else $order = $this->getStorageOrderTime($user);
         if ($order) $client = User::find($order->user);
         return array($order, $client);
     }

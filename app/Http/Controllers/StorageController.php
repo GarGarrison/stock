@@ -86,10 +86,7 @@ class StorageController extends Controller
         }
         if ($nextOrder) {
             $nextClient = User::find($nextOrder->user);
-            $nextOrder->status = 2;
-            $nextOrder->storage_time = $this->getTime();
-            $nextOrder->save();
-            //$nextOrder->update(["status" => 2, "storage_time" => $this->getTime()]);
+            $this->updateOrder($nextOrder);
         }
         $data = ["order" => $nextOrder, "client"=>$nextClient, "user" => $user];
         return view('util.storage_table', $data);
