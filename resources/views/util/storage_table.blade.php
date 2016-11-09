@@ -1,3 +1,4 @@
+@if ($order)
 <?php 
     $ordercount = 0;
     $countdone = "";
@@ -5,14 +6,13 @@
     if ($user->storage == 'offlinecount') $ordercount = $order->offlinecount;
     else $ordercount = $order->onlinecount;
 ?>
-@if ($order)
 <table class="table storage" id = '{{ $order->orderid }}'>
     <tr>
         <td colspan="3" class="thead">
             <span class="client">{{ $client->name }}</span>
         </td>
         <td class="thead">
-            <input class='count-in-answer place' value='{{ $order->takeplace }}'>
+            <input class='count-in-answer place' value="{{ $order->takeplace }}">
         </td>
     </tr>
     <tr>

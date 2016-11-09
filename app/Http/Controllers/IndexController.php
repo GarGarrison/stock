@@ -33,7 +33,6 @@ class IndexController extends Controller
         elseif ($user->type == "Администратор") $data = ["user_list" => User::all(), "current" => ""];
         elseif ($user->type == "Склад") {
             list($order, $client) = $this->getStorageOrder($user, true);
-            //return var_dump($order);
             $data = ["order" => $order, "client"=>$client, "user" => $user];
         }
         return view($user->type, $data);

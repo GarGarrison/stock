@@ -156,10 +156,11 @@ $(document).ready(function(){
 			}
 		}
 		if ( status == "5" ) par.css({'border': '5px solid red'});
+		data = {'oid':id,'countdone': icount, 'status': status, 'takeplace': place};
 		$.ajax({
 			'url':'/util/changestatus',
 			'type': 'post',
-			'data': {'oid':id,'count': icount, 'status': status, 'place': place},
+			'data': data,
 			'success': function(response){
 				//alert(response);
 				//return false;

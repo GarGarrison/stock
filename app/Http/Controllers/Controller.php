@@ -54,12 +54,34 @@ class Controller extends BaseController
         return Carbon::now()->addSeconds($this->delay_time)->timestamp;
     }
 
-    public function updateOrder($join) { 
-        $order = Order::find($join->orderid);
-        $order->update([
-            "status" => 2,
-            "storage_time" => $this->getTime()
-        ]);
+    public function getLastTakeplace($order){
+        $takeplace = $order->takeplace;
+        if ($takeplace == "") {
+            $last = Order::where('user', $order->user)
+                ->where('status', '<>', 6)
+                ->where('takeplace', '<>', "")
+                ->orderBy('datetime', 'desc')->first();
+            if ($last) {
+                $takeplace = $last->takeplace;
+                
+            }
+        }
+        return $takeplace;
+    }
+
+    public function updateOrder($join, $takeplace=false) {
+        if ($join) {
+            if (!$takeplace) $takeplace = $this->getLastTakeplace($join);
+            $order = Order::find($join->orderid);
+            //dd($takeplace);
+            //die();
+            $order->update([
+                "status" => 2,
+                "storage_time" => $this->getTime(),
+                "takeplace" => $takeplace
+            ]);
+            $join->takeplace = $takeplace;
+        }
     }
 
     protected function getOrders() {

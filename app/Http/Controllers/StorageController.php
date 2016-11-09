@@ -13,19 +13,7 @@ class StorageController extends Controller
     public function reloadstorage() {
         $user = Auth::user();
         list($order, $client) = $this->getStorageOrder($user);
-        // проверка последнего места набора
-        if ($order->takeplace == "") {
-            $last = Order::where('user', $order->user)
-                ->where('status', '<>', 6)
-                ->where('takeplace', '<>', "")
-                ->orderBy('datetime', 'desc')->first();
-            if ($last) {
-                $order->takeplace = $last->takeplace;
-                
-            }
-        }
-        if ($order->status == 0) $order->status = 2;
-        $order->save();
+        $this->updateOrder($order);
         $data = ["order" => $order, "client"=>$client, "user" => $user];
         return view('util.storage_table', $data);
     }
@@ -57,7 +45,6 @@ class StorageController extends Controller
             "countdone" => $request["countdone"],
             "employee" => $user->id
         ]);
-
         // следующий заказ от того же клиента
         $nextOrder = DB::table('orders')
             ->where('user', $clientId)
@@ -86,7 +73,9 @@ class StorageController extends Controller
         }
         if ($nextOrder) {
             $nextClient = User::find($nextOrder->user);
-            $this->updateOrder($nextOrder);
+            $takeplace = $nextOrder->takeplace;
+            if ( $takeplace == "" && $clientId == $nextClient->id) $takeplace = $request["takeplace"];
+            $this->updateOrder($nextOrder, $takeplace);
         }
         $data = ["order" => $nextOrder, "client"=>$nextClient, "user" => $user];
         return view('util.storage_table', $data);
