@@ -1,0 +1,160 @@
+hmtl {
+	width: 100%;
+}
+body {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	font-family: Arial;
+}
+.menu {
+	background-image: url("../img/uni-bg.png");
+	width: 100%;
+	height: 91px;
+	margin: 0px;
+	padding: 0px;
+	margin-top: 40px;
+}
+.menu .logo {
+	margin-top: 33px;
+	margin-left: 20px;
+}
+.pic {
+	float: right;
+	margin-top: 30px;
+	margin-right: 20px;
+	cursor: pointer;
+}
+.inner {
+	padding: 20px;
+}
+.pointer {
+	cursor: pointer;
+}
+								/* 			TABLE		*/
+.table {
+	width: 100%;
+	border-spacing: 5px;
+	text-align: left;
+	font-size: 14px;
+	padding: 20px ;
+	padding-bottom: 5px;
+}
+.table th {
+	background: #0a6cce;
+	color: white;
+	font-size: 12px;
+	padding: 8px 0px;
+	text-indent: 20px;	
+}
+.table td {
+	background: #f0f9ff;
+	padding: 15px;
+}
+.table tr td:last img {
+	cursor: pointer;
+}
+								/* 			/TABLE		*/
+/* 			Q HINT		*/
+.q-hint {
+	width: 340px;
+	height: 443px;
+	background: url('../img/hint-background.png');
+	margin: 0px;
+	padding: 0px;
+	position: absolute;
+	display: none;
+	z-index: 100;
+}
+.hint-head {
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 50px;
+	margin-left: 35px;
+	margin-bottom: 20px;
+}
+.hint-table {
+	width: 265px;
+	margin-left: 35px;
+}
+.hint-table td {
+	border-bottom: 1px solid black;
+	padding: 13px 20px;
+	padding-top: 17px;
+}
+.hint-icon-td {
+	width: 80px;
+}
+								/* 			/Q HINT		*/
+.shipped {
+	position: relative;
+}
+.number {
+	font-size: 32px;
+	color: #0a6cce;
+	margin-left: 40px;
+}
+.header-text {
+	font-size: 32px;
+	color: #0a6cce;
+	text-align: right;
+	--float: right;
+}
+.buttons {
+	float: right;
+	z-index: 100;
+}
+.buttons img{
+	padding-right: 40px;
+	cursor: pointer;
+	z-index: 100;
+}
+img.grey {
+	cursor: default;
+}
+.item {
+	width: 100%;
+	z-index: 10;
+}
+.table-padding {
+	background: #cce5cc;
+	padding-bottom: 70px;
+	margin: 20px 0px;;
+}
+.order-special-bold {
+	font-weight: bold;
+	float: left;
+	margin-top: 5px;
+}
+.order-special-bold.green {
+	color: #8eb600;
+	clear: both;
+	margin-top: 10px;
+}
+.order-special-bold.red {
+	color: #ff0000;
+	clear: both;
+	margin-top: 10px;
+}
+.sum {
+	font-size: 24px;
+	color: #0a6cce;
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+.sum-value {
+	font-size: 24px;
+	text-indent: 20px;
+	background: #0a6cce;
+	color: white;
+	float: right;
+	margin-right: 22px;
+	padding: 11px 0px;
+}
+.blue-stripe {
+	width: 100%;
+	height: 5px;
+	background: #0a6cce;
+	margin-bottom: 20px;
+}

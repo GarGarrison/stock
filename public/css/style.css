@@ -1,0 +1,264 @@
+hmtl {
+	width: 100%;
+}
+body {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	font-family: Arial;
+}
+.menu {
+	background-image: url("../img/uni-bg.png");
+	width: 100%;
+	height: 91px;
+	margin: 0px;
+	padding: 0px;
+	margin-top: 40px;
+}
+.menu a {
+	margin: 0px;
+	padding: 0px;
+	text-indent: 0px;
+}
+.menu .logo {
+	margin-top: 33px;
+	margin-left: 20px;
+}
+.pic {
+	float: right;
+	margin-top: 30px;
+	margin-right: 20px;
+	cursor: pointer;
+}
+.inner {
+	padding: 20px;
+}
+.table_container {
+	width: 100%;
+	max-height: 400px;
+	overflow-y: auto;
+}
+.pointer {
+	cursor: pointer;
+}
+								/* 			TABLE		*/
+.table {
+	width: 100%;
+	margin-top: 40px;
+	border-spacing: 5px;
+	text-align: left;
+	font-size: 14px;
+}
+.table th {
+	background: #0a6cce;
+	color: white;
+	font-size: 12px;
+	padding: 8px 0px;	
+}
+.table td {
+	background: #f0f9ff;
+	padding: 15px;
+}
+.table tr td:last img {
+	cursor: pointer;
+}
+								/* 			/TABLE		*/
+								/* 			Q HINT		*/
+.q-hint {
+	width: 340px;
+	height: 443px;
+	background: url('../img/hint-background.png');
+	margin: 0px;
+	padding: 0px;
+	position: absolute;
+	display: none;
+}
+.hint-head {
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 50px;
+	margin-left: 35px;
+	margin-bottom: 20px;
+}
+.hint-table {
+	width: 265px;
+	margin-left: 35px;
+}
+.hint-table td {
+	border-bottom: 1px solid black;
+	padding: 13px 20px;
+	padding-top: 17px;
+}
+.hint-icon-td {
+	width: 80px;
+}
+								/* 			/Q HINT		*/
+/*									SEARCH TABLE			*/
+.search-input {
+	width: 447px;
+	height: 20px;
+	border: 1px solid #ccc;
+	float: left;
+	text-indent: 10px;
+	padding: 2px;
+}
+.search-mini {
+	margin-top: 5px;
+	margin-left: 20px;
+	cursor: pointer;
+}
+.header-text {
+	font-size: 32px;
+	color: #0a6cce;
+	float: right;
+}
+.goods-price-th {
+	width: 30%;
+	text-indent: 20px;
+}
+.goods-avail-th {
+	width: 8%;
+	text-align: center;
+}
+.goods-count-th {
+	width: 11%;
+	text-align: center;
+}
+.goods-order-th {
+	width: 11%;
+	text-align: center;
+}
+.goods-goods-th {
+	width: 40%;
+	text-indent: 20px;
+}
+.search-goods-number {
+	text-decoration: underline;
+}
+.search-exist .search-goods-number {
+	color: #0a6cce;
+}
+.search-price {
+	font-size: 20px;
+	font-weight: bold;
+}
+.search-price-val {
+	font-size: 20px;
+}
+.search-exist .search-price-val {
+	color: #8eb600;
+}
+.search-not-exist {
+	color: #999;
+}
+.search-avail {
+	font-size: 18px;
+} 
+.count-in-answer {
+	width: 52px;
+	height: 20px;
+	float:right;
+	font-size: 18px;
+	text-align: center;
+	border: 2px solid #555;
+	background: white;
+	padding: 3px 0;
+}
+.count-in-answer-ro {
+	width: 52px;
+	height: 20px;
+	float:right;
+	font-size: 18px;
+	text-align: center;
+	padding: 3px 0;
+}
+.goods .count-in-answer {
+	float: none;
+}
+.search-not-exist .count-in-answer {
+	color: #ff0000;
+	border: none;
+	background: none;
+}
+/*								/SEARCH TABLE			*/
+/*								ORDERED TABLE			*/
+.check {
+	float: left;
+	margin-left: 20px;
+	margin-top: 5px;
+	cursor: pointer;
+}
+.auto-set {
+	width: 300px;
+	color: #0a6cce;
+	font-size: 13px;
+	font-weight: bold;
+	margin-left: 10px;
+	margin-top: 10px;
+	float: left;
+	
+}
+.order-block {
+	background: #e5e5e5;
+	margin-top: 20px;
+}
+.order-head {
+	width: 100%;
+	height: 20px;
+	background: #0a6cce;
+}
+.order-goods-th {
+	width: 40%;
+	text-indent: 20px;
+}
+.order-count-th {
+	width: 20%;
+	text-indent: 20px;
+}
+.order-price-th {
+	width: 20%;
+	text-indent: 20px;
+}
+.order-status-th {
+	width: 10%;
+	text-align: center;
+}
+.order-action-th {
+	width: 10%;
+	text-align: center;
+}
+.order-special-bold {
+	font-weight: bold;
+	float: left;
+	margin-top: 5px;
+}
+.order-special-bold.green {
+	color: #8eb600;
+	clear: both;
+	margin-top: 10px;
+}
+.order-special-bold.red {
+	color: #ff0000;
+	clear: both;
+	margin-top: 10px;
+}
+.to-set {
+	display: none;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 40px;
+	float: right;
+}
+.order-footer {
+	width: 100%;
+	height: 174px;
+	background: #0a6cce;
+	margin-top: 67px;
+}
+/*								/ORDERED TABLE			*/
+.blue-stripe {
+	width: 100%;
+	height: 5px;
+	background: #0a6cce;
+	margin-top: 50px;
+}

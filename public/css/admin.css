@@ -1,0 +1,172 @@
+hmtl {
+	width: 100%;
+}
+body {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	font-family: Arial;
+}
+form {
+    margin-top: 50px;
+}
+.admin-body {
+    width: 1000px;
+    margin: 0px auto;
+}
+.menu-container {
+    width: 1000px;
+    margin: 0px auto;
+}
+.menu {
+	background-image: url("../img/uni-bg.png");
+	width: 100%;
+	height: 91px;
+	margin: 0px;
+	padding: 0px;
+	margin-top: 40px;
+}
+.menu a {
+	margin: 0px;
+	padding: 0px;
+	text-indent: 0px;
+}
+.menu .logo {
+	margin-top: 33px;
+	margin-left: 20px;
+}
+.pic {
+	float: right;
+	margin-top: 30px;
+	margin-right: 20px;
+	cursor: pointer;
+}
+.inner {
+	padding: 20px;
+}
+.edit-container {
+    /*width: 960px;
+    height: 400px;*/
+    padding: 30px;
+    background: white;
+    border: 2px solid #0a6cce;;
+    display: none;
+    position: absolute;
+    z-index: 100;
+}
+.header-edit {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0a6cce;  
+    float: left;  
+}
+.close-edit {
+    font-size: 14px;
+    text-decoration: underline;
+    color: #0a6cce;
+    cursor: pointer;
+    float: right;
+}
+								/* 			TABLE		*/
+.table {
+	width: 100%;
+	margin-top: 40px;
+	border-spacing: 5px;
+	text-align: left;
+	font-size: 14px;
+}
+.table th {
+	background: #0a6cce;
+	color: white;
+	font-size: 12px;
+	padding: 8px 0px;
+	text-indent: 20px;	
+}
+.table td {
+	background: #f0f9ff;
+	padding: 15px;
+	font-weight: bold;
+}
+								/* 			/TABLE		*/
+								/* 			FORM		*/
+.edit-container .form {
+    margin-top: 40px;
+}
+.form td {
+	font-size: 14px;
+	font-weight: bold;
+	margin: 0px;
+	padding: 5px 10px;
+	padding-top: 10px;
+}
+.input {
+	height: 20px;
+	border: 1px solid #ccc;
+	text-indent: 10px;
+	padding: 2px;
+}
+.long {
+	width: 300px;
+}
+.short {
+	width: 248px;
+}
+.select {
+	width: 250px;
+	height: 25px;
+}
+.hide-storage {
+	display: none;
+}
+.edit-storage.hide-storage {
+	display: block;
+}
+.hide-select {
+	display: none;
+}
+.edit-client.hide-select {
+	display: block;
+}
+
+.genpasswd {
+	margin: 5px;
+	margin-right: 10px;
+	float: right;
+	cursor: pointer;
+}
+.blue-stripe {
+	width: 100%;
+	height: 5px;
+	background: #0a6cce;
+}
+.adduser {
+	cursor: pointer;
+}
+								/* 			/FORM		*/
+.sort {
+	margin-left: 10px;
+}
+.header-text {
+	font-size: 32px;
+	color: #0a6cce;
+	float: right;
+}
+.user-block {
+	background: #e5e5e5;
+	margin-top: 20px;
+}
+.users img{
+	cursor: pointer;
+}
+.user-head {
+	width: 100%;
+	height: 20px;
+	background: #0a6cce;
+}
+
+.footer {
+	width: 100%;
+	height: 174px;
+	background: #0a6cce;
+	margin-top: 67px;
+}

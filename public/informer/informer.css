@@ -1,0 +1,30 @@
+.informer_browser {
+	margin: 0px;
+	padding: 0px;
+	display: none;
+}
+.informer_browser_shadow {
+	height: 100%;
+	width: 100%;
+	background: black;
+	opacity: 0.4;
+	filter:alpha(opacity=40);
+  	-moz-opacity:0.4;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+}
+.informer_browser_container {
+	width: 300px;
+	margin: 0px auto;
+	background: white;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 200px;
+	z-index: 200;
+	padding: 40px;
+	text-align: center;
+	border-radius: 7px;
+}
