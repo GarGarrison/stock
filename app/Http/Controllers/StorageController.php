@@ -46,28 +46,28 @@ class StorageController extends Controller
             "employee" => $user->id
         ]);
         // следующий заказ от того же клиента
-        $nextOrder = DB::table('orders')
+        $nextOrder = DB::table('order')
             ->where('user', $clientId)
             ->where(function($query){
                 $query->where('status', '2');
                 $query->where('storage_time', '<', $this->getTimeDelta());
                 $query->orWhere('status', 0);
             })
-            ->leftJoin('goods', 'orders.goods', '=', 'goods.num')
-            ->select('orders.id as orderid', 'orders.*', 'goods.*')
+            ->leftJoin('goods', 'order.goods', '=', 'goods.num')
+            ->select('order.id as orderid', 'order.*', 'goods.*')
             ->where($user->storage, '<>', 0)
             ->orderBy('datetime', 'desc')->first();
 
         // если таких нет, ищем любой другой
         if (!$nextOrder) {
-            $nextOrder = DB::table('orders')
+            $nextOrder = DB::table('order')
                 ->where(function($query){
                     $query->where('status', '2');
                     $query->where('storage_time', '<', $this->getTimeDelta());
                     $query->orWhere('status', 0);
                 })
-                ->leftJoin('goods', 'orders.goods', '=', 'goods.num')
-                ->select('orders.id as orderid', 'orders.*', 'goods.*')
+                ->leftJoin('goods', 'order.goods', '=', 'goods.num')
+                ->select('order.id as orderid', 'order.*', 'goods.*')
                 ->where($user->storage, '<>', 0)
                 ->orderBy('datetime', 'desc')->first();
         }

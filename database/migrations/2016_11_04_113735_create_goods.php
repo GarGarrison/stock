@@ -15,7 +15,7 @@ class CreateGoods extends Migration
     {
         Schema::create('goods', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('num', 32);
+            $table->integer('num');
             $table->string('address');
             $table->string('goodsname');
             $table->string('mark');
@@ -33,6 +33,7 @@ class CreateGoods extends Migration
             $table->integer('onlinecount');
             $table->integer('offlinecount');
             $table->string('cell', 32);
+            $table->timestamps();
         });
     }
 

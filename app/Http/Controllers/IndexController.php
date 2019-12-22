@@ -40,12 +40,12 @@ class IndexController extends Controller
 
     public function shipped(Request $request) {
         $req = array();
-        $order_list = DB::table('orders')
+        $order_list = DB::table('order')
             ->where('user', Auth::id())
             ->where('status', '6')
             ->where('billid', '<>', 0)
-            ->join('goods', 'goods.num', '=', 'orders.goods')
-            ->select('orders.id as orderid', 'orders.*', 'goods.*')
+            ->join('goods', 'goods.num', '=', 'order.goods')
+            ->select('order.id as orderid', 'order.*', 'goods.*')
             ->orderBy('datetime', 'desc')->get()->toArray();
         foreach ($order_list as $order) {
             $bill = $order->billid;

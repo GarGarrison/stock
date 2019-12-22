@@ -87,24 +87,24 @@ class Controller extends BaseController
     protected function getOrders() {
         $user = Auth::user();
         DB::statement('SET SQL_BIG_SELECTS=1');
-        $orders = DB::table('orders')
+        $orders = DB::table('order')
             ->where('user', $user->id)
             ->where('status','<>', '6')
-            ->join('goods', 'goods.num', '=', 'orders.goods')
-            ->select('orders.id as orderid', 'orders.*', 'goods.*')
+            ->join('goods', 'goods.num', '=', 'order.goods')
+            ->select('order.id as orderid', 'order.*', 'goods.*')
             ->orderBy('orderid', 'desc')->get();
         return $orders;
     }
 
     public function getStorageOrderTime($user) {
-        $order = DB::table('orders')
+        $order = DB::table('order')
             ->where(function($query){
                 $query->where('status', '2');
                 $query->where('storage_time', '<', $this->getTimeDelta());
                 $query->orWhere('status', 0);
             })
-            ->leftJoin('goods', 'orders.goods', '=', 'goods.num')
-            ->select('orders.id as orderid', 'orders.*', 'goods.*')
+            ->leftJoin('goods', 'order.goods', '=', 'goods.num')
+            ->select('order.id as orderid', 'order.*', 'goods.*')
             ->where($user->storage, '<>', 0)
             ->orderBy('datetime', 'desc')->first();
         $this->updateOrder($order);
@@ -112,10 +112,10 @@ class Controller extends BaseController
     }
 
     public function getStorageOrderNoTime($user) {
-        $order = DB::table('orders')
+        $order = DB::table('order')
             ->where('status', 0)
-            ->leftJoin('goods', 'orders.goods', '=', 'goods.num')
-            ->select('orders.id as orderid', 'orders.*', 'goods.*')
+            ->leftJoin('goods', 'order.goods', '=', 'goods.num')
+            ->select('order.id as orderid', 'order.*', 'goods.*')
             ->where($user->storage, '<>', 0)
             ->orderBy('datetime', 'desc')->first();
         $this->updateOrder($order);

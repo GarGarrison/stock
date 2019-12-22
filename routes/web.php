@@ -35,3 +35,6 @@ Route::group(['middleware' => 'storage'], function(){
     Route::post('/util/changetakeplace', 'StorageController@changetakeplace');
     Route::post('/util/changestatus', 'StorageController@changestatus');
 });
+
+// scripts
+Route::post('/backoffice', 'BackofficeController@backoffice');
