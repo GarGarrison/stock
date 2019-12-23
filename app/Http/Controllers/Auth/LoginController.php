@@ -47,7 +47,9 @@ class LoginController extends Controller
     public function login() {
         $name = Input::get('name');
         $passwd = Input::get('passwd');
-        $user = User::whereName($name)->first();
+        $user = User::whereLogin($name)->first();
+        // \Log::info("orig:".$user->passwd);
+        // \Log::info("fact:".sha1($passwd));
         if ($user && $user->passwd = sha1($passwd)) { 
             Auth::login($user, true);
             return redirect()->intended('/');
