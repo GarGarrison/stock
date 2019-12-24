@@ -11,7 +11,7 @@ use App\Goods;
 use App\Order;
 use DB;
 
-class ScriptsController extends SharedController
+class BackofficeController extends Controller
 {
     private function validateDate($date, $format = 'Y-m-d H:i:s')
     {
@@ -27,37 +27,40 @@ class ScriptsController extends SharedController
             if ($req['action']==='getmaxorder') {
                 echo DB::table('order')->max('id');
             }
-            if ($req['action']==='getorder') {
+            elseif ($req['action']==='getorder') {
                 $order = Order::find($req['id']);
                 echo json_encode($order);
             }
-            if ($req['action']=='updategoods') {
+            elseif ($req['action']=='updategoods') {
                 $user = Goods::where('num', $req['num'])->first();
                 $user->update($req);
                 echo 'ok';
             }
-            if ($req['action']=='insertgoods') {
+            elseif ($req['action']=='insertgoods') {
                 $e = Goods::create($req);
                 echo $e->id;
             }
-            if ($req['action']=='deletegoods') {
-                Goods::where('num', $req['num'])->delete();
+            elseif ($req['action']=='deletegoods') {
+                Goods::where('id', $req['id'])->delete();
                 echo 'ok';
             }
-            if ($req['action']=='updateorder') {
+            elseif ($req['action']=='updateorder') {
                 $order = Order::find($req['id']);
                 $order->update($req);
                 echo 'ok';
             }
-            if ($req['action']=='updateuser') {
+            elseif ($req['action']=='updateuser') {
                 $user = User::find($req['id']);
                 $user->update($req);
                 echo 'ok';
             }
-            if ($req['action']=='get_orders_updated_after') {
+            elseif ($req['action']=='get_orders_updated_after') {
                 if (! $this->validateDate( $req["after"] )) die("either no date param specified or bad date 'after'");
                 $orders = Order::select('id')->where('updated_at', '>', $req["after"])->get();
                 echo json_encode($orders);
+            }
+            else {
+                echo "Unknown request!";
             }
         } 
         catch (Exception $e) {
