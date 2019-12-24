@@ -41,7 +41,7 @@ class BackofficeController extends Controller
                 echo $e->id;
             }
             elseif ($req['action']=='deletegoods') {
-                Goods::where('id', $req['id'])->delete();
+                Goods::where('num', $req['num'])->delete();
                 echo 'ok';
             }
             elseif ($req['action']=='updateorder') {
