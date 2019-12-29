@@ -9,12 +9,11 @@
     <tr id='{{ $order->orderid }}' class='order-item @if($order->status==0) no-autoorder-position @endif'>
         <td>
             <b>{{ $order->goodsname }}</b>
-            @if ($order->mark) 
-                ({{ $order->mark }})
+            @if (!empty($order->mark)) 
+            <div>Маркировка: {{ $order->mark }})</div>
             @endif
-            <br />
-            Корпус {{ $order->case or "не указан"}}<br />
-            Производитель {{ $order->producer or "не указан" }}
+            <div>Корпус: {{ $order->case or "не указан"}}</div>
+            <div>Производитель: {{ $order->producer or "не указан" }}</div>
         </td>
         <td valign='middle'>
 

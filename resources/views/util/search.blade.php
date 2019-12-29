@@ -1,16 +1,19 @@
 @foreach ($goods_list as $goods)
-    <?php
+    @php
         $user = Auth::user();
         $price = 0;
         if ($user->price_level=='Розничные') $price = $user->money=='$' ? $goods->price_retail_usd: $goods->price_retail_rub;
         if ($user->price_level=='Мелкооптовые') $price = $user->money=='$' ? $goods->price_minitrade_usd: $goods->price_minitrade_rub;
         if ($user->price_level=='Оптовые') $price = $user->money=='$' ? $goods->price_trade_usd: $goods->price_trade_rub;
-    ?>
+    @endphp
     <tr class='search-item search-exist' id='{{ $goods->num }}'>
         <td>
-            <span class='search-goods-number'>{{ $goods->goodsname }}</span>{{ $goods->mark }}<br />
-            Корпус {{ $goods->case or "не указан" }}<br />
-            Производитель {{ $goods->producer or "не указан" }}
+            <span class='search-goods-number'>{{ $goods->goodsname }}</span>
+            @if (!empty($goods->mark))
+            <div>Маркировка: {{ $goods->mark }}<div>
+            @endif
+            <div>Корпус: {{ $goods->case or "не указан" }}</div>
+            <div>Производитель: {{ $goods->producer or "не указан" }}</div>
         </td>
         <td>
             <span class='search-price'>Цена:</span> <span class='search-price-val'>{{ $price }}</span><br />

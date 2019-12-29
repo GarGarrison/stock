@@ -23,8 +23,8 @@ class CreateUserTable extends Migration
             $table->string('price_level', 32);
             $table->float('discount');
             $table->string('storage', 12);
-            $table->integer('num_start');
-            $table->integer('num_end');
+            $table->integer('num_start')->default(1);
+            $table->integer('num_end')->default(100000);
             $table->rememberToken();
             $table->timestamps();
         });
