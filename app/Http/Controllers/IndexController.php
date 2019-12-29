@@ -62,9 +62,16 @@ class IndexController extends Controller
     }
 
     public function search(Request $request) {
+        $user = Auth::user();
         $search = $request['search'];
         $req_search = '%'.$search.'%';
-        $goods_list = Goods::where('goodsname', 'like', $req_search)->orWhere('mark', 'like', $req_search)->get();
+        $goods_list = Goods::where( function($query) use ($req_search){
+                                $query->where('goodsname', 'like', $req_search)
+                                      ->orWhere('mark', 'like', $req_search);
+                            })
+                            ->where('num', '>=',$user->num_start)
+                            ->where('num', '<=',$user->num_end)
+                            ->get();
         return view('util.search', ["goods_list" => $goods_list]);
     }
 
