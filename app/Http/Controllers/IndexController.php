@@ -79,7 +79,8 @@ class IndexController extends Controller
         $good = Goods::where('num', $request['id'])->first();
         $user = Auth::user();
         $price = 0;
-        if ($request['status'] == '') $request['status'] = 0;
+        // if ($request['status'] == '') $request['status'] = 0;
+        if ( !array_key_exists($request['status'], $this->status) ) $request['status'] = 0;
         if ($user->price_level=='Розничные') $price = $user->money=='$' ? $good->price_retail_usd: $good->price_retail_rub;
         if ($user->price_level=='Мелкооптовые') $price = $user->money=='$' ? $good->price_minitrade_usd: $good->price_minitrade_rub;
         if ($user->price_level=='Оптовые') $price = $user->money=='$' ? $good->price_trade_usd: $good->price_trade_rub;
