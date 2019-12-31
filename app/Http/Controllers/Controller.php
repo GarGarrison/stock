@@ -73,8 +73,6 @@ class Controller extends BaseController
         if ($join) {
             if (!$takeplace) $takeplace = $this->getLastTakeplace($join);
             $order = Order::find($join->orderid);
-            //dd($takeplace);
-            //die();
             $order->update([
                 "status" => 2,
                 "storage_time" => $this->getTime(),
