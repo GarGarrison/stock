@@ -50,7 +50,7 @@ class LoginController extends Controller
         $user = User::whereLogin($name)->first();
         // \Log::info("orig:".$user->passwd);
         // \Log::info("fact:".sha1($passwd));
-        if ($user && $user->passwd = sha1($passwd)) { 
+        if ($user && $user->passwd == sha1($passwd)) { 
             Auth::login($user, true);
             return redirect()->intended('/');
         }
