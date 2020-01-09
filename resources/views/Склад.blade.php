@@ -18,5 +18,5 @@
             <img class="built-button send-status" src="img/built-button-big.png" status="3" />
         </div>
     </div>
-<script language="javascript" src="js/storage.js"></script>
+<script language="javascript" src="js/storage_new.js"></script>
 @endsection

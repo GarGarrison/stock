@@ -2,7 +2,7 @@
 
 @section('special_links')
 <link rel="stylesheet" href="css/style.css" type="text/css" />
-<script language="javascript" src="js/script.js"></script>
+<script language="javascript" src="js/script_new.js"></script>
 @endsection
 
 @section('content')

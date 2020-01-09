@@ -2,7 +2,7 @@
 
 @section('special_links')
 <link rel="stylesheet" href="css/shipped.css" type="text/css" />
-<script language="javascript" src="js/shipped.js"></script>
+<script language="javascript" src="js/shipped_new.js"></script>
 @endsection
 
 @section('content')

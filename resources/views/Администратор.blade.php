@@ -3,7 +3,7 @@
 @section('special_links')
 <link rel="stylesheet" href="css/admin.css" type="text/css" />
 <script language="javascript" src="js/pGenerator.jquery.js"></script>
-<script language="javascript" src="js/admin.js"></script>
+<script language="javascript" src="js/admin_new.js"></script>
 @endsection
 
 @section('content')
