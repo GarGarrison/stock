@@ -29,5 +29,7 @@
         <td valign='middle' align='center'><img class='to-order pointer' src='img/order.png'></td>      
     </tr>
 @empty
-    <p>Ничего не найдено</p>
+    <tr class='search-item search-exist'>
+        <td>Ничего не найдено</td>        
+    </tr>
 @endforelse
