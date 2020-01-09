@@ -1,4 +1,4 @@
-@foreach ($goods_list as $goods)
+@forelse ($goods_list as $goods)
     @php
         $user = Auth::user();
         $price = 0;
@@ -28,4 +28,6 @@
         <td valign='middle' align='center'><input type='text' class='count-in-answer' value='1'></td>
         <td valign='middle' align='center'><img class='to-order pointer' src='img/order.png'></td>      
     </tr>
-@endforeach
+@empty
+    <p>Ничего не найдено</p>
+@endforelse

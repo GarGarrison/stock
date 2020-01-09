@@ -38,7 +38,10 @@ function SendSearch(text) {
 		alert("Введите запрос");
 		return false;
 	}
-	if (text.length < 3) return false;
+	if (text.length < 3) {
+		alert("Запрос не может быть менее 3 символов");
+		return false;
+	}
 	$('.goods .search-item').remove();
 	$.ajax({
 		'url': 'util/search',
@@ -49,7 +52,8 @@ function SendSearch(text) {
 			$('.search .blue-stripe').css('margin-top', '0px');
 		},
 		'error': function(resp){
-            $('body').prepend(resp.responseText);
+			console.log(resp);
+            //$('body').prepend(resp.responseText);
         } 
 	});
 }
