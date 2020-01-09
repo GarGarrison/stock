@@ -20,6 +20,12 @@
                 width:400px;
                 font-size: 20px;
             }
+            .error-block {
+                font-size: 12px;
+                color: red;
+                margin-top: 5px;
+                display: block;
+            }
             .button{
                 width:170px;
                 font-size:20px;
@@ -30,17 +36,25 @@
         {{ csrf_field() }}
         <table cellpadding='7'><tr>
             <td align='right'>Пользователь:</td>
-            <td><input name='name'/></td>
-            @if ($errors->has('name'))
-                <span class="error-block">{{ $errors->first('name') }}</span>
-            @endif
+            <td>
+                <input name='name'/ value="{{ old('name') }}">
+                @if ($errors->has('name'))
+                    <span class="error-block">{{ $errors->first('name') }}</span>
+                @endif
+            </td>
         </tr>
         <tr>
             <td align='right'>Пароль:</td>
-            <td><input name='passwd' type='password'/></td>
-            @if ($errors->has('passwd'))
-                <span class="error-block">{{ $errors->first('passwd') }}</span>
-            @endif
+            <td>
+                <input name='passwd' type='password'/>
+                @if ($errors->has('passwd'))
+                    <span class="error-block">{{ $errors->first('passwd') }}</span>
+                @endif
+                @if ( !empty($errors->all()['passwd']) )
+                    ololo
+                    <span class="error-block">{{ $errors->all()['passwd'] }}</span>
+                @endif
+            </td>
         </tr>
         <tr>
             <td></td>

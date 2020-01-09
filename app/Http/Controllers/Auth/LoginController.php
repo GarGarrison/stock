@@ -54,5 +54,6 @@ class LoginController extends Controller
             Auth::login($user, true);
             return redirect()->intended('/');
         }
+        else return redirect()->back()->withErrors(['passwd'=> 'Неверный логин или пароль']);
     }
 }
